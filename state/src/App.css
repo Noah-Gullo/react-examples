@@ -35,3 +35,7 @@
   outline: 5px solid #000;
   background-color: #fff;
 }
+
+.App .count{
+  font-size: 2em;
+}
