@@ -28,6 +28,14 @@ class ClassInput extends Component {
     }));
   }
 
+  handleDelete = (todo) => {
+    console.log("del");
+    this.setState((state) => ({
+      todos: state.todos.filter(todos => todos != todo),
+      inputVal: '',
+    }));
+  }
+
   render() {
     return (
       <section>
@@ -47,7 +55,10 @@ class ClassInput extends Component {
         {/* The list of all the To-Do's, displayed */}
         <ul>
           {this.state.todos.map((todo) => (
-            <li key={todo}>{todo}</li>
+            <div key={todo}>
+              <li>{todo}</li>
+              <button onClick={() => this.handleDelete(todo)}>Delete</button>
+            </div>
           ))}
         </ul>
       </section>
