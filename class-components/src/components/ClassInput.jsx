@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import Count from "./Count.jsx";
 
 class ClassInput extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class ClassInput extends Component {
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleInputChange(e) {
@@ -28,8 +30,7 @@ class ClassInput extends Component {
     }));
   }
 
-  handleDelete = (todo) => {
-    console.log("del");
+  handleDelete(todo){
     this.setState((state) => ({
       todos: state.todos.filter(todos => todos != todo),
       inputVal: '',
@@ -61,6 +62,7 @@ class ClassInput extends Component {
             </div>
           ))}
         </ul>
+        <Count totalTodos={this.state.todos.length}></Count>
       </section>
     );
   }
